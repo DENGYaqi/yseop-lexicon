@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Word Form List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h2 align="center">Word Form List</h2>
+      <p align = "center"> <font size="2"><td th:text =${nbWordForm}>...≤/td> <td> word forms in Database.</font></td></p>
+      <br/><br/>
+      <div style="vertical-align:top; text-align: center; width : 100%; height : auto;">
+         <table align = "center" border="1" cellpadding="3" cellspacing="0" style="width: 60%;margin:auto">
+            <tr>
+               <th>Id</th>
+               <th>Word Id</th>
+               <th>Disabled</th>
+               <th>Form</th>
+               <th>Morph</th>
+               <th>LefffPos</th>
+            </tr>
+            <tr th:each ="wf : ${wordForms}">
+               <td th:utext="${wf.id}">...</td>
+               <td ><a th:href="@{../word/}+${wf.wordId}" th:utext = "${wf.wordId}"></a></td>
+               <td th:utext="${wf.disabled}">...</td>
+               <td th:utext="${wf.form}">...</td>
+               <td th:utext="${wf.morph}">...</td>
+               <td th:utext="${wf.lefffpos}">...</td>
+            </tr>
+         </table>
+        <br><br>
+      </div>
+    	<a href="/"> <p style="text-align:center">Home page</p></a>
+   </body>
+</html>

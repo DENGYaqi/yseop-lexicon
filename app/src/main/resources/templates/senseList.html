@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Sense List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h2 align="center">Sense List</h2>
+      <p align = "center"> <font size="2"><td th:text =${nbSenses}>...≤/td> <td> senses in Database.</font></td></p>
+      <br/><br/>
+      <div style="vertical-align:top; text-align: center; width : 100%; height : auto;">
+         <table align = "center" border="1" cellpadding="3" cellspacing="0" style="width: 60%;margin:auto">
+            <tr>
+               <th>Id</th>
+               <th>Score</th>
+               <th>Concept</th>
+               <th>Word</th>
+               <th>Domain</th>
+               <th>Origin</th>
+            </tr>
+            <tr th:each ="s : ${senses}">
+               <td th:utext="${s.id}">...</td>
+               <td th:utext="${s.score}">...</td>
+               <td ><a th:href="@{../concept/}+${s.concept}" th:utext = "${s.concept}"></a></td>
+               <td ><a th:href="@{../word/}+${s.word}" th:utext = "${s.word}"></a></td>
+               <td th:utext="${s.domain}">...</td>
+               <td th:utext="${s.origin}">...</td>
+            </tr>
+         </table>
+        <br><br>
+      </div>
+    	<a href="/"> <p style="text-align:center">Home page</p></a>
+   </body>
+</html>

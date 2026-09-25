@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Lexicon</title>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   
+   <style>
+   html,body,h1,h2,h3,h4,h5
+{
+	font-family: Georgia, serif
+}
+   div{display: inline-block;} 
+   .center-div {
+     margin: 50px;
+     width: 250px; 
+}
+   </style>
+  <body>
+    <h2 align="center"><i>Welcome to Lexicon</i></h2>
+    <p align = "center"> <font size="1" color = "gray">This Lexicon inherit JpaRpository to implement</font> </p>
+
+   		<div class = "center-div" style="vertical-align:top; text-align: center"> 
+		<h3>Show</h3>
+		<a href="wordList">Word</a> 
+        <br><br>
+        <a href="relList">Relation</a>
+        <br><br>
+      	<a href="conceptList">Concept</a>  
+        <br><br>
+      	<a href="leffSemList">LeffSem</a>  
+        <br><br>
+      	<a href="senseList">Sense</a>  
+        <br><br>
+      	<a href="wordFormList">Word Form</a>  
+        <br><br>
+        <a href="domainList">Domain</a>  
+        <br><br>
+		</div>
+        <div class = "center-div" style="vertical-align:top; text-align: center">
+        <h3>Find</h3>
+        <a href="findWordByLemma">Find Word By Lemma</a>
+        <br><br>
+        <a href="findWordById">Find Word By ID</a>
+        <br><br>
+        <a href="findConceptById">Find Concept By Id</a>
+        <br><br>
+        </div>
+        <div class = "center-div" style="vertical-align:top; text-align: center">
+        <h3>Add</h3>
+      	<a href="/addWord">Add Word</a>
+      	<br><br>
+      	<a href="/addSense">Add Sense</a>
+      	<br><br>
+      	<a href="/addLeffSem">Add LeffSem</a>
+        <br><br>
+      	<a href="/addConcept">Add Concept</a>
+        <br><br>
+      	<a href="/addRelation">Add Relation</a>
+        <br><br>
+        <a href="/addDomain">Add Domain</a>
+        <br><br>
+        </div>
+        <footer> <p style="text-align:center"> <font size = "2" color = "gray">&copy; Copyright 2019 Yseop All Rights Reserved.</font></p></footer>
+   </body>
+</html>

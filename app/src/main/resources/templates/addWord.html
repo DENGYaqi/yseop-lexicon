@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Add Word</title>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+   <div class = "main" style="vertical-align:top; text-align: left"> 
+      <h2>Create a Word :</h2>
+      <form th:action="@{addWord}"
+         th:object = "${word}" method="POST">
+         Lemma :
+         <input type="text" th:field="*{lemma}"/>    
+         <br/>
+         <font size="1" color="gray">ex : abandon</font>
+         <br/>
+         Cpos :
+         <input type="text" th:field="*{cpos}" />     
+         <br/>
+         <font size="1" color="gray">ex : NOUN</font>
+         <br/>
+         Pos : 
+		<input type="text" th:field="*{pos}"/>     
+         <br/>
+         <font size="1" color="gray">ex : NC</font>
+         <br/>
+         Language :  
+         <SELECT NAME="lang">
+    		<OPTION th:field="*{lang}" VALUE="fr" SELECTED>fr
+    		<OPTION th:field="*{lang}" VALUE="en">en
+		 </SELECT>
+         <br/>
+         <font size="1" color="gray">ex : fr</font>
+         <br/>
+         Inflection : 
+		<input type="text" th:field="*{infl}" />     
+         <br/>
+         <font size="1" color="gray">ex : nc-2m</font>
+         <br/>
+         Tag : 
+		<input type="text" th:field="*{tag}" />     
+         <br/>
+         <font size="1" color="gray">ex : NULL</font>
+         <br/>
+         Modal : 
+         <INPUT TYPE="radio" th:field="*{modal}" VALUE ="0" CHECKED>0
+		 <INPUT TYPE="radio" th:field="*{modal}" VALUE="1">1
+         <br/>
+         <font size="1" color="gray">ex : 0</font>
+         <br/>
+         Negation : 
+         <INPUT TYPE="radio" th:field="*{neg}" VALUE ="0" CHECKED>0
+		 <INPUT TYPE="radio" th:field="*{neg}" VALUE="1">1
+         <br/>
+         <font size="1" color="gray">ex : 1 is negation, 0 is adverse.</font>
+         <br/>
+         Disabled : 
+         <INPUT TYPE="radio" th:field="*{disabled}" VALUE ="true" CHECKED>True
+		 <INPUT TYPE="radio" th:field="*{disabled}" VALUE="false">False
+         <br/>
+         <font size="1" color="gray">ex : true is avtivated, false is adverse.</font>
+         <br/>
+         Origin : 
+		<input type="text" th:field="*{origin}" />     
+         <br/>
+         <font size="1" color="gray">ex : lefff-3.4</font>
+         <br/>
+         <br/>
+         <input type="submit" value="Create" />
+  		<br/><br/>
+      </form>
+      <!-- Check if errorMessage is not null and not empty -->
+	  <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;vertical-align:bottom;">
+      </div>
+      <a href="/"> <p style="text-align:center">Home page </p></a>
+      </div>
+   </body>
+</html>

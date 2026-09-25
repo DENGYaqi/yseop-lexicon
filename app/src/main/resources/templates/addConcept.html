@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Add Concept</title>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+   <div class = "main" style="vertical-align:top; text-align: left"> 
+      <h2>Create a Concept :</h2>
+      <form th:action="@{addConcept}"
+         th:object = "${concept}" method="POST">
+         Score :
+         <input type="text" th:field="*{score}"/>    
+         <br/>
+         <font size="1" color="gray">ex : 1</font>
+         <br/>
+         Disabled :
+         <INPUT TYPE="radio" th:field="*{disabled}" VALUE ="true" CHECKED>True
+		 <INPUT TYPE="radio" th:field="*{disabled}" VALUE="false">False
+         <br/>
+         <font size="1" color="gray">ex : true or false</font>
+         <br/>
+         Name : 
+		<input type="text" th:field="*{name}"/>     
+         <br/>
+         <font size="1" color="gray">ex : eng-30-00001740-a</font>
+         <br/>
+         Definition :  
+		<input type="text" th:field="*{def}" />     
+         <br/>
+         <font size="1" color="gray">ex : (usually followed by to) having the necessary means or skill or know-how or authority to do something</font>
+         <br/>
+         Usages : 
+		<input type="text" th:field="*{usages}" />     
+         <br/>
+         <font size="1" color="gray">ex : able to swim // she was able to program her computer // we were at last able to buy a car // able to get a grant for the project</font>
+         <br/>
+         Origin : 
+		<input type="text" th:field="*{origin}" />     
+         <br/>
+         <font size="1" color="gray">ex : wolf-1.4b</font>
+         <br/>
+         Semclass : 
+		<input type="text" th:field="*{semclass}" />     
+         <br/>
+         <font size="1" color="gray">ex : capability</font>
+         <br/><br/>
+         <input type="submit" value="Create" />
+  		<br/><br/>
+      </form>
+      <!-- Check if errorMessage is not null and not empty -->
+	  <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;vertical-align:bottom;">
+      </div>
+      <a href="/"> <p style="text-align:center">Home page </p></a>
+      </div>
+   </body>
+</html>

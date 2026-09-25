@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Concept List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h2 align="center">Concept List</h2>
+      <p align = "center"> <font size="2"><td th:text =${nbConcepts}>...≤/td> <td> concepts in Database.</font></td></p>
+      <br/><br/>
+      <div style="vertical-align:top; text-align: center; width : 100%; height : auto;">
+         <table align = "center" border="1" cellpadding="3" cellspacing="0" style="width: 80%;margin:auto">
+            <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Definition</th>
+               <th>Usages</th>
+               <th>SemClass</th>
+               <th>Origin</th>
+               <th>Disabled</th>
+               <th>Score</th>
+            </tr>
+            <tr th:each ="concept : ${concepts}">
+               <td th:utext="${concept.id}">...</td>
+               <td th:utext="${concept.name}">...</td>
+               <td th:utext="${concept.def}">...</td>
+               <td th:utext="${concept.usages}">...</td>
+               <td th:utext="${concept.semclass}">...</td>
+               <td th:utext="${concept.origin}">...</td>
+               <td th:utext="${concept.disabled}">...</td>
+               <td th:utext="${concept.score}">...</td>
+            </tr>
+         </table>
+        <br><br>
+      </div>
+    	<a href="/"> <p style="text-align:center">Home page</p></a>
+   </body>
+</html>

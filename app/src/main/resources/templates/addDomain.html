@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Add Domain</title>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+   <div class = "main" style="vertical-align:top; text-align: left"> 
+      <h2>Create a Domain :</h2>
+      <form th:action="@{addDomain}"
+         th:object = "${domain}" method="POST">
+         Value :
+         <input type="text" th:field="*{value}"/>    
+         <br/>
+         <font size="1" color="gray">ex : Generic, Biology, Medicine...</font>
+         <br/><br/>
+         <input type="submit" value="Create" />
+  		 <br/><br/>
+      </form>
+      <!-- Check if errorMessage is not null and not empty -->
+	  <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;vertical-align:bottom;">
+      </div>
+      <a href="/"> <p style="text-align:center"> Home page </p></a>
+      </div>
+   </body>
+</html>

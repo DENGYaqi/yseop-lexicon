@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Add Word Form</title>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+   <div class = "main" style="vertical-align:top; text-align: left"> 
+      <h2>Create a Word Form :</h2>
+      <form th:action="@{addWordForm}"
+         th:object = "${wordForm}" method="POST">
+         Word Id :
+         <input type="text" th:field="*{word}"/>    
+         <br/>
+         <font size="1" color="gray">ex : 1 / 2 ...</font>
+         <br/>
+         Disabled :
+         <input type="text" th:field="*{disabled}"/>    
+         <br/>
+         <font size="1" color="gray">ex : 1 / 2 ...</font>
+         <br/>
+         Form :
+         <input type="text" th:field="*{form}" />     
+         <br/>
+         <font size="1" color="gray">ex : 10</font>
+         <br/>
+         Morph : 
+		 <input type="text" th:field="*{morph}"/>     
+         <br/><br/>
+  		 Lefff Pos : 
+		 <input type="text" th:field="*{lefffpos}"/>     
+         <br/><br/>
+         <input type="submit" value="Create" />
+  		 <br/><br/>
+      </form>
+      <!-- Check if errorMessage is not null and not empty -->
+	  <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;vertical-align:bottom;">
+      </div>
+      <a href="/"> <p style="text-align:center"> Home page </p></a>
+      </div>
+   </body>
+</html>

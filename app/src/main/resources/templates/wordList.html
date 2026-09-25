@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Word List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+      <style>
+   html,body,h1,h2,h3,h4,h5
+{
+	font-family: Georgia, serif
+}
+   div{display: inline-block;} 
+   .center-div {
+     margin: 50px;
+     width: 150px; 
+}
+   </style>
+   <body>
+      <h2 align = "center">Word List</h2>
+      <p align = "center"> <font size="2"><td th:text =${nbWords}>...≤/td> <td> words in Database.</font></td></p>
+      <br/><br/>
+      <div style="vertical-align:top; text-align: center; width : 100%; height : auto;">
+         <table align = "center" border="1" cellpadding="3" cellspacing="0" style="width: 60% ; margin:auto" >
+            <tr>
+               <th>Id</th>
+               <th>Lemma</th>
+               <th>Cpos</th>
+               <th>Pos</th>
+               <th>Language</th>
+               <th>Inflectional</th>
+               <th>Tag</th>
+               <th>Modal</th>
+               <th>Negation</th>
+               <th>Disabled</th>
+               <th>Origin</th>
+            </tr>
+            <tr th:each ="word : ${words}">
+               <td th:utext="${word.id}">...</td>
+               <td th:utext="${word.lemma}">...</td>
+               <td th:utext="${word.cpos}">...</td>
+               <td th:utext="${word.pos}">...</td>
+               <td th:utext="${word.lang}">...</td>
+               <td th:utext="${word.infl}">...</td>
+               <td th:utext="${word.tag}">...</td>
+               <td th:utext="${word.modal}">...</td>
+               <td th:utext="${word.neg}">...</td>
+               <td th:utext="${word.disabled}">...</td>
+               <td th:utext="${word.origin}">...</td>
+            </tr>
+         </table>
+        <br><br>
+      </div>
+    	<a href="/">  <p style="text-align:center">Home page</p></a>
+   </body>
+</html>

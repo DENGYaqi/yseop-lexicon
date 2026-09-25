@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Relation List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h2 align="center">Relation List</h2>
+      <p align = "center"> <font size="2"><td th:text =${nbRels}>...≤/td> <td> relations in Database.</font></td></p>
+      <br/><br/>
+      <div style="vertical-align:top; text-align: center; width : 100%; height : auto;">
+         <table align = "center" border="1" cellpadding="3" cellspacing="0" style="width: 60%;margin:auto">
+            <tr>
+               <th>PrimaryKey</th>
+               <th>Name</th>
+               <th>Source</th>
+               <th>Target</th>
+               <th>Domain</th>
+               <th>Description</th>
+               <th>Disabled</th>
+               <th>Origin</th>
+            </tr>
+            <tr th:each ="rel : ${rels}">
+               <td th:utext="${rel.primaryKey}">...</td>
+               <!-- Go to API Controller -->
+               <td ><a th:href="@{../rel/}+${rel.name}" th:utext = "${rel.name}"></a></td>
+			   <td ><a th:href="@{../concept/}+${rel.source}" th:utext = "${rel.source}"></a></td>
+			   <td ><a th:href="@{../concept/}+${rel.target}" th:utext = "${rel.target}"></a></td>
+               <td th:utext="${rel.domain}">...</td>
+               <td th:utext="${rel.description}">...</td>
+               <td th:utext="${rel.disabled}">...</td>
+               <td th:utext="${rel.origin}">...</td>
+            </tr>
+         </table>
+        <br><br>
+      </div>
+    	<a href="/"> <p style="text-align:center">Home page </p></a>
+   </body>
+</html>

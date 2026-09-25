@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Add Sense</title>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+   <div class = "main" style="vertical-align:top; text-align: left"> 
+      <h2>Create a Sense :</h2>
+      <form th:action="@{addSense}"
+         th:object = "${sense}" method="POST">
+         Word Id :
+         <input type="text" th:field="*{word}"/>    
+         <br/>
+         <font size="1" color="gray">ex : 24751</font>
+         <br/>
+         Score :
+         <input type="text" th:field="*{score}"/>    
+         <br/>
+         <font size="1" color="gray">ex : 1 / 2 ...</font>
+         <br/>
+         Concept Id :
+         <input type="text" th:field="*{concept}" />     
+         <br/>
+         <font size="1" color="gray">ex : 1</font>
+         <br/>
+         Domain Id : 
+		 <input type="text" th:field="*{domain}"/>     
+         <br/>
+         <font size="1" color="gray">ex : 1</font>
+         <br/>
+  		 Origin : 
+		 <input type="text" th:field="*{origin}"/>     
+		 <br/>
+         <font size="1" color="gray">ex : wolf</font>
+         <br/><br/>
+         <input type="submit" value="Create" />
+  		 <br/><br/>
+      </form>
+      <!-- Check if errorMessage is not null and not empty -->
+	  <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;vertical-align:bottom;">
+      </div>
+      <!-- Check if Word is not exist -->
+	  <div th:if="${errorMesOfWord}" th:utext="${errorMesOfWord}"
+         style="color:red;font-style:italic;vertical-align:bottom;">
+      </div>
+      <!-- Check if Concept is not exist -->
+	  <div th:if="${errorMesOfConcept}" th:utext="${errorMesOfConcept}"
+         style="color:red;font-style:italic;vertical-align:bottom;">
+      </div>
+      <a href="/"> <p style="text-align:center"> Home page </p></a>
+      </div>
+   </body>
+</html>

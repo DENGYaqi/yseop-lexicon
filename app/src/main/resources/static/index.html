@@ -1,70 +1,139 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <title>Lexicon</title>
-      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   </head>
-   
-   <style>
-   html,body,h1,h2,h3,h4,h5
-{
-	font-family: Georgia, serif
-}
-   div{display: inline-block;} 
-   .center-div {
-     margin: 50px;
-     width: 250px; 
-}
-   </style>
-  <body>
-    <h2 align="center"><i>Welcome to Lexicon</i></h2>
-    <p align = "center"> <font size="1" color = "gray">This Lexicon inherit JpaRpository to implement</font> </p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lexicon</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      color: #20342b;
+      background: #f4f7f5;
+      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    header {
+      padding: 56px 20px 10px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font: 600 clamp(2.25rem, 5vw, 3.25rem)/1.15 Georgia, serif;
+    }
+    header p { margin: 0; color: #617269; }
+    main {
+      width: min(1080px, calc(100% - 40px));
+      margin: 34px auto 64px;
+      flex: 1;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+    .menu-card {
+      min-height: 100%;
+      padding: 25px;
+      border: 1px solid #dce6df;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(24, 55, 38, .05);
+    }
+    h2 {
+      margin: 0 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e5ece7;
+      font: 600 1.55rem/1.2 Georgia, serif;
+    }
+    ul { margin: 0; padding: 0; list-style: none; }
+    li + li { margin-top: 8px; }
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      background: #f5f9f6;
+      color: #24533b;
+      text-decoration: none;
+    }
+    a::after { content: "›"; font-size: 1.35rem; line-height: 1; }
+    a:hover, a:focus-visible {
+      border-color: #a9c8b4;
+      background: #eaf3ed;
+      outline: none;
+    }
+    footer {
+      padding: 20px;
+      border-top: 1px solid #e0e9e3;
+      color: #718077;
+      text-align: center;
+      font-size: .85rem;
+    }
+    @media (max-width: 760px) {
+      header { padding-top: 38px; }
+      main { margin-top: 26px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Lexicon</h1>
+    <p>Browse words, concepts, and relations in the lexicon.</p>
+  </header>
 
-   		<div class = "center-div" style="vertical-align:top; text-align: center"> 
-		<h3>Show</h3>
-		<a href="wordList">Word</a> 
-        <br><br>
-        <a href="relList">Relation</a>
-        <br><br>
-      	<a href="conceptList">Concept</a>  
-        <br><br>
-      	<a href="leffSemList">LeffSem</a>  
-        <br><br>
-      	<a href="senseList">Sense</a>  
-        <br><br>
-      	<a href="wordFormList">Word Form</a>  
-        <br><br>
-        <a href="domainList">Domain</a>  
-        <br><br>
-		</div>
-        <div class = "center-div" style="vertical-align:top; text-align: center">
-        <h3>Find</h3>
-        <a href="findWordByLemma">Find Word By Lemma</a>
-        <br><br>
-        <a href="findWordById">Find Word By ID</a>
-        <br><br>
-        <a href="findConceptById">Find Concept By Id</a>
-        <br><br>
-        </div>
-        <div class = "center-div" style="vertical-align:top; text-align: center">
-        <h3>Add</h3>
-      	<a href="/addWord">Add Word</a>
-      	<br><br>
-      	<a href="/addSense">Add Sense</a>
-      	<br><br>
-      	<a href="/addLeffSem">Add LeffSem</a>
-        <br><br>
-      	<a href="/addConcept">Add Concept</a>
-        <br><br>
-      	<a href="/addRelation">Add Relation</a>
-        <br><br>
-        <a href="/addDomain">Add Domain</a>
-        <br><br>
-        </div>
-        <footer> <p style="text-align:center"> <font size = "2" color = "gray">&copy; Copyright 2019 Yseop All Rights Reserved.</font></p></footer>
-   </body>
+  <main>
+    <div class="menu-grid">
+      <section class="menu-card" aria-labelledby="show-heading">
+        <h2 id="show-heading">Show</h2>
+        <nav aria-label="Show">
+          <ul>
+            <li><a href="/wordList">Word</a></li>
+            <li><a href="/relList">Relation</a></li>
+            <li><a href="/conceptList">Concept</a></li>
+            <li><a href="/leffSemList">LeffSem</a></li>
+            <li><a href="/senseList">Sense</a></li>
+            <li><a href="/wordFormList">Word Form</a></li>
+            <li><a href="/domainList">Domain</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="menu-card" aria-labelledby="find-heading">
+        <h2 id="find-heading">Find</h2>
+        <nav aria-label="Find">
+          <ul>
+            <li><a href="/findWordByLemma">Find Word By Lemma</a></li>
+            <li><a href="/findWordById">Find Word By ID</a></li>
+            <li><a href="/findConceptById">Find Concept By Id</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="menu-card" aria-labelledby="add-heading">
+        <h2 id="add-heading">Add</h2>
+        <nav aria-label="Add">
+          <ul>
+            <li><a href="/addWord">Add Word</a></li>
+            <li><a href="/addSense">Add Sense</a></li>
+            <li><a href="/addLeffSem">Add LeffSem</a></li>
+            <li><a href="/addConcept">Add Concept</a></li>
+            <li><a href="/addRelation">Add Relation</a></li>
+            <li><a href="/addDomain">Add Domain</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </main>
+
+  <footer>© Copyright 2019 Yseop All Rights Reserved.</footer>
+</body>
 </html>
